@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="">Consomi Tounsi</a>
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a [routerLink]="['/home']" class="nav-link" target="_blank"><i class="nc-icon nc-shop"></i> Shop now</a>
+                </li>
+                <li class="nav-item" *ngIf="isHome()">
+                    <a (click)="open(mymodal1)" target="_blank" class="btn btn-danger btn-round">Sign in for vendor demo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ng-template #mymodal1 let-modal1>
+    <div class="modal-body">
+        <h4 class="modal-title" id="modal-basic-title"><b>Demo login</b></h4>
+<br><br>
+        <form style="text-align: center;">
+            <div class="row col-md-12" style="float:none;margin:auto;">
+                <h5 style="float:none;margin:auto;">Please scan the QR code to sign up</h5>
+                <h5 style="float:none;margin:auto;">or you can just click register</h5>
+
+            <img src="./assets/img/qr.png" style="width: 80%;float:none;margin:auto;">
+            </div>
+            <br>
+            <hr class="solid">
+            <br>
+            <div class="row col-md-12" style="float:none;margin:auto;">
+                <h5 style="float:none;margin:auto;">Feeling lazy? You can use "<b>bal2022</b>" 🤫</h5>
+                <br>
+                <h5 style="float:none;margin:auto;"><b>Username :</b></h5>
+                <input type="text" placeholder="Your Username" [(ngModel)]="user.username"
+                       [ngModelOptions]="{standalone : true}" style="width: 100%">
+            </div>
+
+            <br>
+            <br>
+            <div style="float:none;margin:auto;">
+                <button [disabled]="!user.username" type="button" class="btn btn-success" (click)="signIn(user.username)" (click)="modal1.close('Save click')" style="width:100px">Login</button>
+                <button type="button" class="btn btn-warning" [routerLink]="['/register']" (click)="modal1.close('Save click')" style="width:100px">Register</button>
+                <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" style="width:100px">Cancel</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+<style>
+    hr.solid {
+        border-top: 3px solid #bbb;
+    }
+</style>
