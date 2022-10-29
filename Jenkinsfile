@@ -2,7 +2,7 @@ node ('slave') {
     
      stage('GIT Pull') {
                   git branch: 'master',
-                  url : 'https://github.com/yasmine-sys/cd_angular.git',
+                  url : 'https://github.com/chamsBLT/balfront.git',
                   credentialsId: 'github-cred';
     }
   
