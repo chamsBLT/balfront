@@ -4,13 +4,12 @@
   docker_image:
     name: cd
     build:
-      path: /var/jenkins/slave/workspace/cd_project/
+      path: /var/jenkins/slave/workspace/cd_project
       pull: 'no'
     source: build
     state: present
     force_source: true
-    vars:
-    ansible_python_interpreter: /usr/bin/python3
+    
 - name: Run docker container
   docker_container:
     name: cd_container
@@ -19,6 +18,7 @@
     recreate: true
     ports:
      - "4202:80"
+
 - name: Tag and push to docker hub
   docker_image:
     name: cd
