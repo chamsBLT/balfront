@@ -1,0 +1,7 @@
+---
+# tasks file for build
+- name: Install dependecies
+  shell: npm install --verbose
+
+- name: Build
+  shell: ng build --prod
