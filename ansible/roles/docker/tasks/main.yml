@@ -13,7 +13,7 @@
   docker_container:
     name: cd_container
     image: cd:latest
-    state:started
+    state: started
     recreate: true
     ports:
      - "4202:80"
