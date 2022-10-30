@@ -4,7 +4,7 @@
   docker_image:
     name: cd
     build:
-      path: /var/jenkins/slave/workspace/cd_project/
+      path: /var/jenkins/slave/workspace/cd_project
       pull: 'no'
     source: build
     state: present
