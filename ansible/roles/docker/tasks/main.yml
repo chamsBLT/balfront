@@ -22,7 +22,7 @@
 - name: Tag and push to docker hub
   docker_image:
     name: cd
-    source: push
+    source: local
     repository: chxws/cd
     tag: latest
     push: yes
