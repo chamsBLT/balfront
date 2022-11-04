@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-	app: cd-project-front
+        app: cd-project-front
     spec:
       containers:
         - name: cd-project-front
