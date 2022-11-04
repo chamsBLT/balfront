@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-	app: cd-project-back
+        app: cd-project-back
     spec:
       containers:
         - name: cd-project-back
