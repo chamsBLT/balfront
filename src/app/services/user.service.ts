@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  readonly API_URL = 'http://service2.chxws.live:8083/login/user';
+  readonly API_URL = 'http://192.168.1.207:8083/login/user';
 
   constructor(private httpClient: HttpClient) { }
 
