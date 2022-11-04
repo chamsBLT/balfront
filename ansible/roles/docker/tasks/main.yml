@@ -2,7 +2,7 @@
 # tasks file for docker
 - name: Create docker image
   docker_image:
-    name: cd
+    name: cd_front
     build:
       path: /var/jenkins/slave/workspace/cd_project
       pull: 'no'
@@ -12,8 +12,8 @@
 
 - name: Tag and push to docker hub
   docker_image:
-    name: cd
+    name: cd_front
     source: local
-    repository: chxws/cd
+    repository: chxws/cd_front
     tag: latest
     push: yes
