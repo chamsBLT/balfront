@@ -6,13 +6,13 @@ node ('slave') {
          credentialsId: 'github-cred';
     }
   
-    stage('Build') {
+    stage('Build w/ansible') {
         script {   
             sh 'ansible-playbook ansible/build.yml -i ansible/inventory/host.yml -vvv'
         }
     }  
   
-    stage('Docker') {
+    stage('Docker w/ansible') {
         script {   
             sh 'ansible-playbook ansible/docker.yml -i ansible/inventory/host.yml -vvv'
         }
