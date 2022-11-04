@@ -9,15 +9,6 @@
     source: build
     state: present
     force_source: true
-    
-- name: Run docker container
-  docker_container:
-    name: cd_container
-    image: cd:latest
-    state: started
-    recreate: true
-    ports:
-     - "4202:80"
 
 - name: Tag and push to docker hub
   docker_image:
