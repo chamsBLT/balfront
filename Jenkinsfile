@@ -32,8 +32,16 @@ node ('slave') {
             // --> FRONTEND*/
             sh "minikube kubectl -- apply -f frontend-dep-svc.yml"
             
-            sh "minikube service front-svc --url"
+            sh "minikube kubectl -- get all"
+            url=sh "minikube service front-svc --url"
             
         }
     }
+    
+    stage("Notify w/e-mail") {
+      script {
+          mail bcc: '', 
+          body: "Build ${BUILD_DISPLAY_NAME} on ${JOB_NAME} was successful. You can visit the web page directly : \$url ", cc: '', from: '', replyTo: '', subject: "${BUILD_NUMBER} was run successfully", to: 'chamseddine.balti@esprit.tn'
+     }
+   }
 }
