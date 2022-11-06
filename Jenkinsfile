@@ -1,6 +1,6 @@
 node ('slave') {
     
-     stage('GIT Pull') {
+    stage('GIT Pull') {
          git branch: 'master',
          url : 'https://github.com/chamsBLT/balfront.git',
          credentialsId: 'github-cred';
